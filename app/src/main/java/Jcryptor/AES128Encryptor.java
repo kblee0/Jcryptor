@@ -6,7 +6,6 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
-import java.util.function.Predicate;
 import org.apache.commons.codec.binary.Hex;
 
 public class AES128Encryptor extends Encryptor {
@@ -61,8 +60,8 @@ public class AES128Encryptor extends Encryptor {
 
     private void validation(final String key) {
         Optional.ofNullable(key)
-                .filter(Predicate.not(String::isBlank))
-                .filter(Predicate.not(s -> s.length() != 16))
+                .filter(s -> !s.isEmpty())
+                .filter(s -> s.length() == 16)
                 .orElseThrow(IllegalArgumentException::new);
     }
 }
