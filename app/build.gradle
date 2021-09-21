@@ -21,7 +21,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 
     // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1.1-jre'
+    // implementation 'com.google.guava:guava:30.1.1-jre'
 
     implementation 'info.picocli:picocli:4.6.1'
     implementation 'org.bouncycastle:bcprov-jdk15on:1.64'
@@ -41,6 +41,7 @@ configurations {
 application {
     // Define the main class for the application.
     mainClass = 'Jcryptor.JcryptorCli'
+    applicationName = 'jcryptorcli'
 }
 
 tasks.named('test') {
